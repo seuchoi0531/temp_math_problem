@@ -1,2 +1,1 @@
-다음 극한을 조사하시오.
 \\(\\lim_(x\\rightarrow \\infty)\\frac{2^(-x)}{3^x}\\)
