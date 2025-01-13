@@ -49,6 +49,7 @@ $(document).ready(function () {
         url: `${basePath}function${fileExtension}`,
         datatype: 'text',
         success: function (data) {
+            console.log(data);
             let temp = "";
             for (let index of data) {
                 if (index == "\n") {
