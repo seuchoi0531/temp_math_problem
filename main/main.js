@@ -49,8 +49,7 @@ $(document).ready(function () {
         url: `${basePath}testproblem1${fileExtension}`,
         datatype: 'text',
         success: function (data) {
-            console.log(data);
-            str = data;
+            renderLatex(str);
         },
         error: function (xhr, status, error) {
             console.error('파일을 읽는 데 오류가 발생했습니다:', error);
@@ -63,5 +62,4 @@ $(document).ready(function () {
         container.innerHTML = '$$' + latexText + '$$';  // MathJax에서 렌더링할 수 있는 형식으로 수식 설정
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, container]);  // MathJax로 수식 렌더링
     }
-    renderLatex(str);
 });
