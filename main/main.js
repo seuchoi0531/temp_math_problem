@@ -56,5 +56,12 @@ $(document).ready(function () {
             console.error('파일을 읽는 데 오류가 발생했습니다:', error);
         }
     });
-    problem_area.innerText = `\\(${str}\\)`;
+    //problem_area.innerText = `\\(${str}\\)`;
+    function renderLatex(str) {
+        let latexText = str;
+        let container = document.getElementById('problem_area');
+        container.innerHTML = '$$' + latexText + '$$';  // MathJax에서 렌더링할 수 있는 형식으로 수식 설정
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, container]);  // MathJax로 수식 렌더링
+    }
+    renderLatex(str);
 });
