@@ -49,7 +49,7 @@ $(document).ready(function () {
         url: `${basePath}testproblem1${fileExtension}`,
         datatype: 'text',
         success: function (data) {
-            renderLatex(str);
+            renderLatex(data);
         },
         error: function (xhr, status, error) {
             console.error('파일을 읽는 데 오류가 발생했습니다:', error);
