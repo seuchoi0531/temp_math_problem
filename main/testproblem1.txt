@@ -1,1 +1,1 @@
-\\(\\underset{x\\rightarrow \\infty}{\\lim}\\frac{2^{-x}}{3^x}\\)
+\\(\\lim_{x\\rightarrow \\infty}\\frac{2^{-x}}{3^x}\\)
