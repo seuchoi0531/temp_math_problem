@@ -50,7 +50,7 @@ $(document).ready(function () {
         datatype: 'text',
         success: function (data) {
             console.log('파일 내용:', data);
-            $('#problem_area').text(data);  // 읽은 데이터를 HTML에 표시
+            $('#problem_area').text(`\\(${data}\\)`);  // 읽은 데이터를 HTML에 표시
         },
         error: function (xhr, status, error) {
             console.error('파일을 읽는 데 오류가 발생했습니다:', error);
