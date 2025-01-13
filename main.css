@@ -1,0 +1,69 @@
+#wrap{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+#button_area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#option_area {
+    flex-grow: 2;
+}
+
+#problem_area {
+    flex-grow: 6;
+}
+
+.button{
+    padding-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    background-color: lightblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 0 0 #717171;
+}
+
+.hidden_radio{
+    display: none;
+}
+
+.button:hover {
+    background-color: deepskyblue;
+}
+
+.hidden_radio:checked + .button {
+    background-color: deepskyblue;
+    box-shadow: 0 0 0 0 #717171;
+    transform: translateY(4px);
+}
+
+
+
+
+/*--------------------------*/
+#option_area{
+    padding-left: 10px;
+}
+#option_area>div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#limit_option, #differential_option, #integral_option{
+    display: hidden;
+}
+#option_area>div>div>label:first-child{
+    font-weight: bold;
+}
+.sub_div {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+}

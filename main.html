@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의 극한, 미분, 적분 연습하기</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="button_area">
+            <input type="radio" id="limit" name="problem_type" class="hidden_radio" checked>
+            <label for="limit" class="button">극한<br>\( \lim \)</label>
+            <input type="radio" id="differential" name="problem_type" class="hidden_radio">
+            <label for="differential" class="button">미분<br>\( \frac{dy}{dx}/f'(x)/y'/\frac{d}{dx}f(x)\)</label>
+            <input type="radio" id="differentiation" name="problem_type" class="hidden_radio">
+            <label for="differentiation" class="button">미분법<br>\( \frac{dy}{dx}/f'(x)/y'/\frac{d}{dx}f(x)\)</label>
+            <input type="radio" id="integral" name="problem_type" class="hidden_radio">
+            <label for="integral" class="button">적분<br>\( \int \)</label>
+        </div>
+        <div id="option_area">
+            <div id="limit_option">
+                <div id="limit_of_funciton">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="limit1" checked>함수의 극한
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="poly1" checked>다항함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="exp1" checked>지수함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="log1" checked>로그함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="trig1" checked>삼각함수
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div id="limit_undecided_coefficient">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="limit2" checked>극한과 미정계수
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="poly2" checked>다항함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="exp2" checked>지수함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="log2" checked>로그함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="trig2" checked>삼각함수
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div id="Continuous_undecided_coefficient">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="limit3" checked>연속과 미정계수
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="poly3" checked>다항함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="exp3" checked>지수함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="log3" checked>로그함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="limit" class="sub_checkbox" value="trig3" checked>삼각함수
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="differential_option">
+                <div id="derivative">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="differential1" checked>도함수
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="poly1" checked>다항함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="exp1" checked>지수함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="log1" checked>로그함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="trig1" checked>삼각함수
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div id="differential_coefficient">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="differential2" checked>미분계수
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="poly2" checked>다항함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="exp2" checked>지수함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="log2" checked>로그함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="trig2" checked>삼각함수
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div id="differential_possibility">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="differential3" checked>미분가능성
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="poly3" checked>다항함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="exp3" checked>지수함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="log3" checked>로그함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="trig3" checked>삼각함수
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="differentiation_option">
+                <div id="differentiation_of_quotients">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="differential4" checked>몫의 미분법
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="poly4" checked>다항함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="exp4" checked>지수함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="log4" checked>로그함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="trig4" checked>삼각함수
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div id="differentiation_of_composite_function">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="differential5" checked>합성함수의 미분법
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="poly5" checked>다항함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="exp5" checked>지수함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="log5" checked>로그함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="trig5" checked>삼각함수
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div id="other_differentiation">
+                    <label>
+                        <input type="checkbox" class="main_checkbox" value="differential6" checked>그 외 미분법
+                    </label>
+                    <div class="sub_div">
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="log" checked>로그미분법
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="parameter" checked>매개변수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="implicit" checked>음함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="inverse" checked>역함수
+                        </label>
+                        <label>
+                            <input type="checkbox" name="differential" class="sub_checkbox" value="second_order" checked>이계도함수
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="integral_option">
+                There are no items to display at the moment.<br> It will be available in the next version update.
+            </div>
+        </div>
+        <div id="problem_area">
+            <p>다음은 LaTeX 수식입니다:</p>
+
+            <!-- 인라인 수식 -->
+            <p>인라인 수식: \( E = mc^2 \)</p>
+
+            <!-- 블록 수식 -->
+            <p>블록 수식:</p>
+            \[
+            \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+            \]
+        </div>
+    </div>
+</body>
+
+</html>
