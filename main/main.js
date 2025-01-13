@@ -41,7 +41,6 @@ $(document).ready(function () {
 
 
 
-/*
     const basePath = './';
     const fileExtension = '.txt';
     let str = '';
@@ -66,5 +65,5 @@ $(document).ready(function () {
         } else {
             console.error('MathJax가 로드되지 않았습니다.');
         }
-    }*/
+    }
 });
