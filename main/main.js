@@ -46,7 +46,7 @@ $(document).ready(function () {
     const fileExtension = '.txt';
     let str = '';
     $.ajax({
-        url: `${basePath}function${fileExtension}`,
+        url: `${basePath}testproblem1${fileExtension}`,
         datatype: 'text',
         success: function (data) {
             console.log(data);
