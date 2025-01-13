@@ -53,6 +53,7 @@ $(document).ready(function () {
             let temp = "";
             for (let index of data) {
                 if (index == "\n") {
+                    console.log("dfdfdf0000");
                     str += temp;
                     temp = "";
                 } else
