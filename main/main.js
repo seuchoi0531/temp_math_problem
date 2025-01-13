@@ -44,16 +44,16 @@ $(document).ready(function () {
 
     const basePath = './';
     const fileExtension = '.txt';
-
+    let str = '';
     $.ajax({
         url: `${basePath}function${fileExtension}`,
         datatype: 'text',
         success: function (data) {
-            console.log('파일 내용:', data);
-            $('#problem_area').text(`\\(${data}\\)`);  // 읽은 데이터를 HTML에 표시
+            str = data;
         },
         error: function (xhr, status, error) {
             console.error('파일을 읽는 데 오류가 발생했습니다:', error);
         }
     });
+    problem_area.innerText = `\\(${str}\\)`;
 });
