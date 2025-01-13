@@ -56,10 +56,15 @@ $(document).ready(function () {
         }
     });
     //problem_area.innerText = `\\(${str}\\)`;
-    function renderLatex(str) {
-        let latexText = str;
+    function renderLatex(latexText) {
         let container = document.getElementById('problem_area');
         container.innerHTML = '$$' + latexText + '$$';  // MathJax에서 렌더링할 수 있는 형식으로 수식 설정
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, container]);  // MathJax로 수식 렌더링
+    
+        // MathJax 3.x에서 수식을 렌더링
+        if (typeof MathJax !== "undefined" && MathJax.typeset) {
+            MathJax.typeset([container]);
+        } else {
+            console.error('MathJax가 로드되지 않았습니다.');
+        }
     }
 });
