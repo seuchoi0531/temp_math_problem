@@ -49,7 +49,14 @@ $(document).ready(function () {
         url: `${basePath}function${fileExtension}`,
         datatype: 'text',
         success: function (data) {
-            str = data;
+            let temp = "";
+            for (let index of data) {
+                if (index == "\n") {
+                    str += temp;
+                    temp = "";
+                } else
+                    temp += index;
+            }
         },
         error: function (xhr, status, error) {
             console.error('파일을 읽는 데 오류가 발생했습니다:', error);
